@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.assesment_mvvm.model.Product
+import com.example.assesment_mvvm.model.ProductResponse
 import com.example.assesment_mvvm.repository.ProductRepository
 import kotlinx.coroutines.launch
 
@@ -17,11 +18,26 @@ class ProductViewModel : ViewModel() {
         viewModelScope.launch {
             val response = productsRepo.getProducts()
             if (response.isSuccessful) {
-                productsLiveData.postValue(response.body()?.products)
-            } else {
+                val productList=response.body()?: emptyList()
+                productsLiveData.postValue(productList as
+                List<Product>)
+
+            }
+            else {
                 errorLiveData.postValue(response.errorBody()?.string())
             }
         }
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+

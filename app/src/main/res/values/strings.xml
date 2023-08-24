@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Assesment-mvvm</string>
+    <string name="id">id</string>
+    <string name="user_id">User Id</string>
+    <string name="body">Body</string>
+    <string name="title">Title</string>
 </resources>

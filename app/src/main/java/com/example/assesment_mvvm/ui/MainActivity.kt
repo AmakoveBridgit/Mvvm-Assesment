@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         productViewModel.productsLiveData.observe(this, Observer { productList ->
 
             var productAdapter = ProductAdapter(productList ?: emptyList())
-            binding.rvProducts.layoutManager = GridLayoutManager(this,2)
+            binding.rvProducts.layoutManager = GridLayoutManager(this, 2)
             binding.rvProducts.adapter = productAdapter
             Toast
                 .makeText(baseContext, "fetched ${productList?.size}products", Toast.LENGTH_LONG)
@@ -49,5 +49,11 @@ class MainActivity : AppCompatActivity() {
         })
     }
 }
+
+
+
+
+
+
 
 
